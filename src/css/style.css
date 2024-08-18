@@ -1,0 +1,86 @@
+body {
+  color: #999;
+}
+
+.button {
+  position: relative;
+  background-color: #008000;
+  border-color: #008000;
+  color: white;
+  box-sizing: border-box;
+  height: 50px;
+  width: 160px;
+  font-size: 20px;
+}
+
+.card-number-input {
+  box-sizing: border-box;
+  height: 50px;
+  width: 290px;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.form {
+  display: flex;
+  align-content: center;
+  gap: 10px;
+}
+
+.icon {
+  background-size: 40px;
+  background-position: 240px;
+  background-repeat: no-repeat;
+}
+
+.icon-american-express {
+  background-image: url("../img/icons8-american-express-48.png");
+}
+
+.icon-credit-card {
+  background-image: url("../img/icons8-credit-card-50.png");
+}
+
+.icon-diners-club {
+  background-image: url("../img/icons8-diners-club-48.png");
+}
+
+.icon-discover {
+  background-image: url("../img/icons8-discover-card-80.png");
+}
+
+.icon-jcb {
+  background-image: url("../img/icons8-jcb-64.png");
+}
+
+.icon-maestro {
+  background-image: url("../img/icons8-maestro-48.png");
+}
+
+.icon-mastercard {
+  background-image: url("../img/icons8-mastercard-48.png");
+}
+
+.icon-mir {
+  background-image: url("../img/icons8-mir-48.png");
+}
+
+.icon-unionpay {
+  background-image: url("../img/icons8-unionpay-48.png");
+}
+
+.icon-visa {
+  background-image: url("../img/icons8-visa-48.png");
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
