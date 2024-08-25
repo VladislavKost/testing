@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import { runServer, stopServer } from "./e2e.server";
+import { fork } from "child_process";
 
 describe("Page start", () => {
   let browser;
@@ -7,7 +7,16 @@ describe("Page start", () => {
   let server;
 
   beforeEach(async () => {
-    await runServer();
+    server = fork(`${__dirname}/e2e.server.js`);
+    await new Promise((resolve, reject) => {
+      server.on("error", reject);
+      server.on("message", (message) => {
+        if (message === "ok") {
+          resolve();
+        }
+      });
+    });
+    await server.start();
     browser = await puppeteer.launch({
       headless: true,
       slowMo: 50,
@@ -25,6 +34,6 @@ describe("Page start", () => {
 
   afterEach(async () => {
     await browser.close();
-    await stopServer();
+    server.kill();
   });
 });
