@@ -17,13 +17,13 @@ describe("Inn Form", () => {
   });
 
   test("Form should render on page start", async () => {
-    await page.goto("http://localhost:8081");
+    await page.goto("http://localhost:9000");
 
     await page.waitForSelector(".input-card-widget");
   });
 
   test("Form input should add .icon-discover class for the card code", async () => {
-    await page.goto("http://localhost:8081");
+    await page.goto("http://localhost:9000");
 
     await page.waitForSelector(".input-card-widget");
 
@@ -34,7 +34,7 @@ describe("Inn Form", () => {
   }, 20000);
 
   test("Form input should add .valid class for the card code", async () => {
-    await page.goto("http://localhost:8081");
+    await page.goto("http://localhost:9000");
 
     await page.waitForSelector(".input-card-widget");
 
@@ -48,7 +48,7 @@ describe("Inn Form", () => {
   }, 20000);
 
   test("Form input should add .invalid class for the card code", async () => {
-    await page.goto("http://localhost:8081");
+    await page.goto("http://localhost:9000");
 
     await page.waitForSelector(".input-card-widget");
 
