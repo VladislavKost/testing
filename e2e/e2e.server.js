@@ -1,5 +1,5 @@
 const { createServer } = require("webpack-dev-server");
-const config = require("../webpack.config");
+const config = require("../webpack.common");
 
 const server = createServer(config);
 
