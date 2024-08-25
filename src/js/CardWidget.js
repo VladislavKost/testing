@@ -46,11 +46,13 @@ export class CardInputWidget {
     let target = e.target;
     this._checkPaymentSystem(target.value, target);
     this._addSpaceAfter4Characters(target);
+    this.input.classList.remove("valid", "invalid");
   }
   onSubmit(e) {
     e.preventDefault();
     const result = validateCard(this.widget);
-    console.log(result);
+    const validationClass = result ? "valid" : "invalid";
+    this.input.classList.add(validationClass);
   }
   removeOldIcon(input, currentSystem) {
     input.classList.remove(currentSystem);

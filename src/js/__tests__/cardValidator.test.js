@@ -1,16 +1,11 @@
-import { validateCard } from "../CardValidator";
-import { CardInputWidget } from "../CardWidget";
+import { cardNumberValidation } from "../CardValidator";
 
-describe("widgetTest", () => {
-  beforeEach(() => {
-    const container = document.querySelector(".container");
-    const cardWidget = new CardInputWidget(container);
-    cardWidget.bindToDOM();
+describe("cardNumberValidation test", () => {
+  it("test validateCard valid", () => {
+    expect(cardNumberValidation("4532 1605 2129 9231")).toBe(true);
   });
 
-  it("test validateCard", async () => {
-    expect(hasGoblin).toBe(true);
-
-    jest.useRealTimers();
+  it("test validateCard invalid", () => {
+    expect(cardNumberValidation("2222 2222 2222 2222 222")).toBe(false);
   });
 });

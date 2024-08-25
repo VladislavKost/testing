@@ -3,7 +3,7 @@ export const validateCard = (widget) => {
   return cardNumberValidation(input.value);
 };
 
-const cardNumberValidation = (inputValue) => {
+export const cardNumberValidation = (inputValue) => {
   const number = inputValue.toString();
   const digits = number.replace(/\D/g, "").split("").map(Number);
   let sum = 0;

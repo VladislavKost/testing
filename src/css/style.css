@@ -27,6 +27,14 @@ body {
   gap: 10px;
 }
 
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red
+}
+
 .icon {
   background-size: 40px;
   background-position: 240px;
