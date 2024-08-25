@@ -18,6 +18,7 @@ build_script:
   - yarn build   # команда сборки
 
 test_script:
+  - yarn start
   - yarn lint && yarn test  # скрипт тестирования
 
 deploy_script:  # скрипт развёртывания
