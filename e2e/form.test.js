@@ -6,8 +6,8 @@ describe("Inn Form", () => {
 
   beforeEach(async () => {
     browser = await puppeteer.launch({
-      headless: false,
-      slowMo: 100,
+      headless: true,
+      slowMo: 50,
       devtools: true,
     });
 
