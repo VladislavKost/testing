@@ -6,7 +6,7 @@ describe("Inn Form", () => {
 
   beforeEach(async () => {
     browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       slowMo: 50,
       devtools: true,
     });
@@ -43,6 +43,20 @@ describe("Inn Form", () => {
     await input.type("6011243478259906");
     await submit.click();
     await page.waitForSelector(".input-card-widget .card-number-input.valid");
+  }, 20000);
+
+  test("Form input should add .invalid class for the card code", async () => {
+    await page.goto("http://localhost:8081");
+
+    await page.waitForSelector(".input-card-widget");
+
+    const form = await page.$(".input-card-widget");
+    const input = await form.$(".card-number-input");
+    const submit = await form.$(".button");
+
+    await input.type("2222 2222 2222 2222 222");
+    await submit.click();
+    await page.waitForSelector(".input-card-widget .card-number-input.invalid");
   }, 20000);
 
   afterEach(async () => {
