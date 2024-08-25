@@ -1,21 +1,12 @@
 import puppeteer from "puppeteer";
-import { fork } from "child_process";
+import { runServer, stopServer } from "./e2e.server";
 
 describe("Inn Form", () => {
   let browser;
   let page;
-  let server;
 
   beforeEach(async () => {
-    server = fork(`${__dirname}/e2e.server.js`);
-    await new Promise((resolve, reject) => {
-      server.on("error", reject);
-      server.on("message", (message) => {
-        if (message === "ok") {
-          resolve();
-        }
-      });
-    });
+    await runServer();
     browser = await puppeteer.launch({
       headless: false,
       slowMo: 50,
@@ -72,6 +63,6 @@ describe("Inn Form", () => {
 
   afterEach(async () => {
     await browser.close();
-    server.kill();
+    await stopServer();
   });
 });

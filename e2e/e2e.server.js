@@ -6,11 +6,12 @@ const compiler = Webpack(webpackConfig);
 const devServerOptions = { ...webpackConfig.devServer, open: true };
 const server = new WebpackDevServer(devServerOptions, compiler);
 
-server.listen(8081, "localhost", (err) => {
-  if (err) {
-    return;
-  }
-  if (process.send) {
-    process.send("ok");
-  }
-});
+export const runServer = async () => {
+  console.log("Starting server...");
+  await server.start();
+};
+
+export const stopServer = async () => {
+  console.log("Stopping server...");
+  await server.stop();
+};
