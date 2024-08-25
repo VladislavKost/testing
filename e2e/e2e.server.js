@@ -1,7 +1,10 @@
-const { createServer } = require("webpack-dev-server");
-const config = require("../webpack.common");
+const Webpack = require("webpack");
+const WebpackDevServer = require("webpack-dev-server");
+const webpackConfig = require("../webpack.common.js");
 
-const server = createServer(config);
+const compiler = Webpack(webpackConfig);
+const devServerOptions = { ...webpackConfig.devServer, open: true };
+const server = new WebpackDevServer(devServerOptions, compiler);
 
 server.listen(8081, "localhost", (err) => {
   if (err) {
