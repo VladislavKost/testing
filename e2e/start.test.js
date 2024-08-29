@@ -16,7 +16,6 @@ describe("Page start", () => {
         }
       });
     });
-    await server.start();
     browser = await puppeteer.launch({
       headless: true,
       slowMo: 50,
@@ -34,6 +33,5 @@ describe("Page start", () => {
 
   afterEach(async () => {
     await browser.close();
-    server.kill();
   });
 });
