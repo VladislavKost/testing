@@ -57,7 +57,7 @@ describe("Inn Form", () => {
   }, 20000);
 
   test("Form input should add .invalid class for the card code", async () => {
-    await page.goto("http://localhost:9000");
+    await page.goto("http://localhost:8081");
 
     await page.waitForSelector(".input-card-widget");
 
