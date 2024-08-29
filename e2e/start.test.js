@@ -33,5 +33,6 @@ describe("Page start", () => {
 
   afterEach(async () => {
     await browser.close();
+    server.kill();
   });
 });

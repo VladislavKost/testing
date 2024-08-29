@@ -16,7 +16,6 @@ describe("Inn Form", () => {
         }
       });
     });
-
     browser = await puppeteer.launch({
       headless: false,
       slowMo: 50,
@@ -73,5 +72,6 @@ describe("Inn Form", () => {
 
   afterEach(async () => {
     await browser.close();
+    server.kill();
   });
 });
