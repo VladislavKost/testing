@@ -42,6 +42,7 @@ jobs:
           cache: 'yarn'
       - run: yarn
       - run: yarn test
+      - run: yarn e2e
 
   build:
     needs: [eslint, test]
