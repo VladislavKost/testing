@@ -19,7 +19,7 @@ describe("Inn Form", () => {
       });
     });
     browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       slowMo: 50,
       devtools: true,
     });
