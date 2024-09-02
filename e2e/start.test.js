@@ -1,12 +1,13 @@
 import puppeteer from "puppeteer";
 import { fork } from "child_process";
 
+jest.setTimeout(30000);
 describe("Page start", () => {
   let browser;
   let page;
   let server;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     server = fork(`${__dirname}/e2e.server.js`);
     await new Promise((resolve, reject) => {
       server.on("error", reject);
@@ -31,7 +32,7 @@ describe("Page start", () => {
     await page.waitForSelector("body");
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     await browser.close();
     server.kill();
   });

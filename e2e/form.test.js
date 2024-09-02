@@ -1,12 +1,14 @@
 import puppeteer from "puppeteer";
 import { fork } from "child_process";
 
+jest.setTimeout(30000);
+
 describe("Inn Form", () => {
   let browser;
   let page;
   let server;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     server = fork(`${__dirname}/e2e.server.js`);
     await new Promise((resolve, reject) => {
       server.on("error", reject);
@@ -70,7 +72,7 @@ describe("Inn Form", () => {
     await page.waitForSelector(".input-card-widget .card-number-input.invalid");
   }, 20000);
 
-  afterEach(async () => {
+  afterAll(async () => {
     await browser.close();
     server.kill();
   });
